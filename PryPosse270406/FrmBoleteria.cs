@@ -40,22 +40,25 @@ namespace PryPosse270406
                 MessageBox.Show("Ingrese la cantidad de boletos a comprar");
                 cmbCantidad.Focus();
             }
+            else
+            {
+                if ((Convert.ToInt16(cmbCantidad.Text)) >= 7 || distancia >= 100)
+                {
+                    distancia = Convert.ToInt16(txtDistancia.Text);
+                    varDistancia = (distancia * 5);
+                    varTotal = varDistancia / 2;
+                    MessageBox.Show($"El total a pagar es: {varTotal}", "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    distancia = Convert.ToInt16(txtDistancia.Text);
+                    varDistancia = (distancia * 5);
+                    varTotal = varDistancia;
+                    MessageBox.Show($"El total a pagar es: {varTotal}", "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
 
-            distancia = Convert.ToInt16(txtDistancia.Text);
-            if ((Convert.ToInt16(cmbCantidad.Text)) >= 7 || distancia >= 100)
-            {
-                
-                varDistancia = (distancia * 5);
-                varTotal = varDistancia / 2;
-                MessageBox.Show($"El total a pagar es: {varTotal}", "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else            
-            {
-                
-                varDistancia = (distancia * 5);
-                varTotal = varDistancia;
-                MessageBox.Show($"El total a pagar es: {varTotal}", "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+            
 
 
         }
